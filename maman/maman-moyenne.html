@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcul de Moyenne 📊</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body {
+    margin:0; text-align:center; font-family:'Roboto',sans-serif;
+    background: linear-gradient(to bottom, #ffc0cb, #add8e6);
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+}
+h1 { font-family:'Pacifico', cursive; animation: glow 2s infinite alternate; color:#003366; }
+input, button { padding:10px 15px; margin:10px; border-radius:25px; border:none; font-size:16px; }
+button { background: linear-gradient(to right, #ffb6c1,#87cefa); cursor:pointer; transition:0.3s; }
+button:hover { transform: scale(1.05); }
+table { margin-top:20px; border-collapse: collapse; width:90%; max-width:600px; }
+th, td { border:1px solid #003366; padding:8px; }
+th { background-color:#ffb6c1; }
+#resultat { margin-top:20px; font-size:20px; font-weight:bold; }
+@keyframes glow { from{opacity:0.7;} to{opacity:1;} }
+</style>
+</head>
+
+<body>
+
+<h1>📊 Calcul de Moyenne (sur 100)</h1>
+
+<input id="nomEleve" placeholder="Nom de l'élève">
+<input id="notesEleve" placeholder="Notes séparées par des virgules (ex:12,15,18)">
+<button onclick="ajouterEleve()">Ajouter l'élève</button>
+
+<p id="resultat"></p>
+
+<table id="tableauEleves">
+    <thead>
+        <tr><th>Nom</th><th>Notes</th><th>Moyenne sur 100</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+let eleves = [];
+
+function ajouterEleve(){
+    const nom = document.getElementById('nomEleve').value.trim();
+    const notesStr = document.getElementById('notesEleve').value.trim();
+    if(!nom || !notesStr){ alert('Veuillez remplir tous les champs !'); return; }
+
+    const notes = notesStr.split(',').map(n => parseFloat(n));
+    if(notes.some(isNaN)){ alert('Veuillez entrer uniquement des nombres pour les notes !'); return; }
+
+    // Calcul de la moyenne sur 100
+    // On suppose que chaque note est sur 20
+    const somme = notes.reduce((a,b) => a+b,0);
+    const moyenne = ((somme / notes.length) * 5).toFixed(2); // 20 -> 100
+
+    eleves.push({nom, notes, moyenne});
+
+    // Mettre à jour le tableau
+    const tbody = document.querySelector('#tableauEleves tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${nom}</td><td>${notes.join(', ')}</td><td>${moyenne}</td>`;
+    tbody.appendChild(tr);
+
+    // Afficher dernière moyenne
+    document.getElementById('resultat').innerText = `Moyenne de ${nom} : ${moyenne}/100`;
+
+    // Réinitialiser champs
+    document.getElementById('nomEleve').value='';
+    document.getElementById('notesEleve').value='';
+}
+</script>
+
+
+ <a href="maman.html">retour page maman</a>
+</body>
+</html>

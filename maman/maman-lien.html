@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ressources Maman 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<style>
+body {
+    font-family:'Roboto',sans-serif;
+    background: linear-gradient(to bottom, #fff0f5, #e6f7ff);
+    margin:0; padding:20px; text-align:center;
+}
+h1 {
+    font-family:'Pacifico', cursive;
+    font-size:32px;
+    color:#003366;
+    animation: glow 2s infinite alternate;
+    margin-bottom:30px;
+}
+.card {
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+    padding:20px;
+    max-width:600px;
+    margin:20px auto;
+    text-align:left;
+}
+.card p {
+    font-size:18px;
+    margin-bottom:10px;
+}
+.btn {
+    display:inline-block;
+    padding:12px 25px;
+    margin:10px 0;
+    border-radius:25px;
+    text-decoration:none;
+    color:#003366;
+    background: linear-gradient(to right, #ffb6c1, #87cefa);
+    font-weight:bold;
+    transition:0.3s;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+.note {
+    margin-top:30px;
+    font-size:18px;
+    color:#333;
+    font-style:italic;
+}
+@keyframes glow { from{opacity:0.7;} to{opacity:1;} }
+
+/* Mobile */
+@media (max-width:600px){
+    h1 { font-size:28px; }
+    .card { padding:15px; }
+    .btn { width:80%; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>📌 Ressources utiles 💖</h1>
+
+<div class="card">
+  <p><ion-icon name="film-outline"></ion-icon> Séries & Films</p>
+  <a class="btn" href="https://movix.club/tv/4k7M9rrmOPH6ugSmOe9Y7M1HBmTGqsiyuGvto" target="_blank">
+    <ion-icon name="play-circle-outline"></ion-icon> Bridgerton
+  </a>
+</div>
+
+
+<p class="note">Page simple, pratique et stylée 💝</p>
+
+<script src="../script.js"></script>
+</body>
+</html>
